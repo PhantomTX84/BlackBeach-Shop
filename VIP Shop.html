@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlackBeach Shop</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: url('background-image.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #e0e0e0;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            text-align: center;
+            width: 100%;
+            height: 25vh; /* Banner height set to 25% of the viewport height */
+            overflow: hidden;
+            position: relative;
+        }
+        header img {
+            width: 110%; /* Increase the image size by 10% */
+            height: auto;
+            transform: rotate(25deg); /* Rotate the banner by 25 degrees to the right */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(25deg); /* Center the image */
+        }
+        nav {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            z-index: 1; /* Ensure the navigation is in front of the banner */
+        }
+        nav a {
+            color: #e0e0e0;
+            text-decoration: none;
+            margin: 0 15px;
+            padding: 10px 15px;
+        }
+        nav a:hover {
+            background-color: #ff4500;
+            color: #fff;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            padding: 20px;
+        }
+        .content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.8);
+            border-radius: 8px;
+            width: 600px;
+            position: relative;
+        }
+        .content h2 {
+            color: #ff4500;
+            font-size: 2.5em;
+            margin-bottom: 0;
+        }
+        .content h3 {
+            color: #ff4500;
+            margin-top: 0;
+        }
+        .price {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 1.5em;
+            color: #fff;
+        }
+        .buy-button {
+            position: absolute;
+            top: 60px;
+            right: 20px;
+            display: block;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            color: #fff;
+            background-color: #ff4500;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-align: center;
+        }
+        .buy-button:hover {
+            background-color: #e03c00;
+        }
+        .details-container {
+            background-color: rgba(43, 43, 43, 0.8);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .packages {
+            list-style: none;
+            padding: 0;
+            width: 100%;
+        }
+        .packages li {
+            background-color: rgba(255, 69, 0, 0.8);
+            margin: 10px 0;
+            padding: 25px;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 24px;
+        }
+        .packages a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .packages a:hover {
+            text-decoration: underline;
+        }
+        .footer-buttons {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .footer-buttons button {
+            display: block;
+            margin: 5px 0;
+            padding: 10px 20px;
+            font-size: 14px;
+            color: #fff;
+            background-color: #7f2a23;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 150px;
+        }
+        .footer-buttons button:hover {
+            background-color: #651d1d;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            width: 100%;
+        }
+    </style>
+    <script>
+        function showPackageDetails(packageId) {
+            var overview = document.getElementById('home');
+            overview.style.display = 'none';
+            var details = document.getElementsByClassName('package-details');
+            for (var i = 0; i < details.length; i++) {
+                details[i].style.display = 'none';
+            }
+            document.getElementById(packageId).style.display = 'block';
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <img src="https://www.dropbox.com/scl/fi/gmpk0m4k4d9ptaq3ebzrp/1027C4D8-C934-4528-A402-3B8AF91D57D6-2.webp?rlkey=dvdal58e9f7ezb5r3zy9wy54m&raw=1" alt="BlackBeach Banner">
+        <nav>
+            <a href="javascript:void(0);" onclick="showPackageDetails('home')">Home</a>
+        </nav>
+    </header>
+    <div class="container">
+        <div class="content">
+            <div id="home" class="package-overview">
+                <ul class="packages">
+                    <li><a href="javascript:void(0);" onclick="showPackageDetails('vip-package')">VIP</a></li>
+                </ul>
+            </div>
+            <div id="vip-package" class="package-details" style="display: none;">
+                <h2>VIP</h2>
+                <h3>Lifetime</h3>
+                <div class="price">€10</div>
+                <button class="buy-button">Buy Now</button>
+                <div class="details-container">
+                    <h3>VIP Benefits</h3>
+                    <ul>
+                        <li><b>3 VIP Kits</b></li>
+                        <li><b>No Decay On Bases</b></li>
+                        <li><b>Own MiniHeli</b></li>
+                        <li><b>6 Homes</b></li>
+                        <li><b>Lower Teleport Cooldowns</b></li>
+                        <li><b>Bgrade To Upgrade On Placement</b></li>
+                        <li><b>RemoverTool</b></li>
+                    </ul>
+                </div>
+                <div class="details-container">
+                    <h3>VIP Commands</h3>
+                    <ul>
+                        <li><b>/bgrade 1-4</b> - To Upgrade On Placement, 1 Being Wood And 4 Being High Quality Metal</li>
+                        <li><b>/remove</b> - You Can Remove Any Thing You Have Built As Long As You Have The Material In Your Inventory</li>
+                        <li><b>/mymini</b> - Spawn Your Minicopter</li>
+                        <li><b>/fmini</b> - Fetch Your Minicopter</li>
+                        <li><b>/nomini</b> - Despawn Your Minicopter</li>
+                    </ul>
+                </div>
+            </div>
+            <div id="about-us" class="package-details" style="display: none;">
+                <h3>About Us</h3>
+                <p>BlackBeach server! Our goal is to create a positive and welcoming community where players can have fun and interact in a friendly environment. We strive to provide the best experience possible for all our members. Thank you for being a part of our growing community!</p>
+            </div>
+            <div id="contact" class="package-details" style="display: none;">
+                <h3>Contact Us</h3>
+                <p>If you have any questions or need support, please <i>contact us at</i> <a href="mailto:support@blackbeach.com">support@blackbeach.com</a>.</p>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="footer-buttons">
+            <button onclick="showPackageDetails('about-us')">About Us</button>
+            <button onclick="showPackageDetails('contact')">Contact Us</button>
+        </div>
+        <p>&copy; 2024 BlackBeach Shop. All rights reserved.</p>
+    </footer>
+</body>
+</html>
